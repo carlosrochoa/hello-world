@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  am5:
+    image: fredmoser/accessmod:latest
+    ports:
+      - "3180:3100"
+    command: ["Rscript", "--vanilla", "run.r", "3100", "5100", "5180"]
+    volumes: 
+      - am5_dev_tmp:/tmp
+      - am5_dev_data:/data/dbgrass
+      - am5_dev_cache:/data/cache
+      - am5_dev_logs:/data/logs
+
+volumes:
+  am5_dev_tmp:
+  am5_dev_data:
+  am5_dev_cache:
+  am5_dev_logs:
